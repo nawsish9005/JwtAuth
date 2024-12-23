@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-var JWTSetting= builder.Configuration.GetSection("JWTSettings");
+var JWTSetting= builder.Configuration.GetSection("JWTSetting");
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(opt=>opt.UseSqlite("Data Source=auth.db"));
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
