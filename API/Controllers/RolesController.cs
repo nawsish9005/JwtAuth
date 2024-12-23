@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class RolesController:ControllerBase
@@ -29,7 +29,6 @@ namespace API.Controllers
             {
                 return BadRequest("Role name is required");
             }
-
             var roleExist = await _roleManager.RoleExistsAsync(createRoleDto.RoleName);
 
             if(roleExist)
@@ -43,16 +42,12 @@ namespace API.Controllers
             {
                 return Ok(new {message="Role Created successfully"});
             }
-
             return BadRequest("Role creation failed.");
-            
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RoleResponseDto>>> GetRoles()
         {
-            
-
             // list of roles with total users in each role 
 
             var roles = await _roleManager.Roles.Select(r=>new RoleResponseDto{
@@ -85,9 +80,7 @@ namespace API.Controllers
             }
 
             return BadRequest("Role deletion failed.");
-            
         }
-
 
         [HttpPost("assign")]
         public async Task<IActionResult> AssignRole([FromBody] RoleAssignDto roleAssignDto)
@@ -117,16 +110,7 @@ namespace API.Controllers
             var error = result.Errors.FirstOrDefault();
 
             return BadRequest(error!.Description);
-
         }
-
-
-
-
-
-
     }
-
-
 
 }
