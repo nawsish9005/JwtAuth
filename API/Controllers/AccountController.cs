@@ -81,7 +81,7 @@ namespace API.Controllers
             {
                 return Unauthorized(new AuthResponseDto{
                     IsSuccess=false,
-                    Message="User not found with this email"
+                    Message="User not found with this Email"
                 });
             }
             var result=await _userManager.CheckPasswordAsync(user,loginDto.Password);
