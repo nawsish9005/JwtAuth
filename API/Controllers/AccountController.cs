@@ -13,7 +13,7 @@ namespace API.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api[controller]")]
+    [Route("api/[controller]")]
     //api/account
     public class AccountController: ControllerBase
     {
