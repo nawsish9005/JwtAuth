@@ -16,6 +16,8 @@ import { RoleService } from '../../services/role.service';
 import { Observable } from 'rxjs';
 import { Role } from '../../interfaces/role';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { ValidationError } from '../../interfaces/validation-error';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -45,22 +47,29 @@ export class RegisterComponent implements OnInit {
   hide = true;
   passwordHide!: boolean;
   confirmPasswordHide!: boolean;
+  errors!: ValidationError[];
 
   register() {
     this.authService.register(this.registerForm.value).subscribe({
       next: (response) => {
+        console.log(response);
+
         this.matSnackBar.open(response.message, 'Close', {
           duration: 5000,
           horizontalPosition: 'center',
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
-      error: (error) => {
-        this.matSnackBar.open(error.error.message, 'Close', {
+      error: (err: HttpErrorResponse) => {
+        if(err!.status==400){
+          this.errors=err!.error;
+        this.matSnackBar.open('Validations error', 'Close', {
           duration: 5000,
           horizontalPosition: 'center',
         });
+      }
       },
+      complete: () => console.log('Register Success'),
     });
   }
 

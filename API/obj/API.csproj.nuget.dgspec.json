@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\filessss\\JwtAuth\\APi\\API.csproj": {}
+    "E:\\filessss\\JwtAuth\\API\\API.csproj": {}
   },
   "projects": {
-    "E:\\filessss\\JwtAuth\\APi\\API.csproj": {
+    "E:\\filessss\\JwtAuth\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\filessss\\JwtAuth\\APi\\API.csproj",
+        "projectUniqueName": "E:\\filessss\\JwtAuth\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\filessss\\JwtAuth\\APi\\API.csproj",
+        "projectPath": "E:\\filessss\\JwtAuth\\API\\API.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "E:\\filessss\\JwtAuth\\APi\\obj\\",
+        "outputPath": "E:\\filessss\\JwtAuth\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
