@@ -33,7 +33,7 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.apiUrl}account/register`, data)
   }
 
-  getDetail = ():Observable<UserDetail> =>
+  getDetail = (): Observable<UserDetail> =>
     this.http.get<UserDetail>(`${this.apiUrl}account/detail`);
 
   getUserDetail = () => {
@@ -41,12 +41,11 @@ export class AuthService {
     if (!token) return null;
     const decodedToken: any = jwtDecode(token);
     const userDetail = {
-      Id: decodedToken.Id,
-      FullName: decodedToken.name,
-      Email: decodedToken.Email,
+      id: decodedToken.nameid,
+      fullName: decodedToken.name,
+      email: decodedToken.email,
       roles: decodedToken.role || [],
     };
-
     return userDetail;
   };
 

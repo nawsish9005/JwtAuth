@@ -19,7 +19,7 @@ export const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'account/:Id',
+    path: 'account/:id',
     component: AccountComponent,
     canActivate: [authGuard],
   },

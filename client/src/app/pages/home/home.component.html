@@ -9,7 +9,7 @@
       @if(authService.getUserDetail()){
       <h1 class="text-2xl">
         You are logged in as <span class="font-bold bg-blue-600 rounded-md p-2 text-white">
-          {{authService.getUserDetail()?.FullName}}
+          {{authService.getUserDetail()?.fullName}}
         </span>
       </h1>
       }@else{

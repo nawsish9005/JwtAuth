@@ -5,8 +5,8 @@
         </h1>
         <div *ngIf="accountDetail$ | async as user">
             <div class="text-center">
-                <div class="rounded-full bg-blue-500 my-4 text-4xl w-2/4 h-2/4 inline-flex items-center justify-center font-bold text-white">
-                    {{user.fullName}}
+                <div class="rounded-full bg-blue-500 my-4 text-4xl w-24 h-24 inline-flex items-center justify-center font-bold text-white">
+                    {{user.fullName[0].toUpperCase()}}
                 </div>
             </div>
             <hr class="py-4 border-slate-400">
