@@ -5,5 +5,8 @@
         <div class="w-1/2">
             <app-role-form [errorMessage]="errorMessage" [role]="role" (addRole)="createRole($event)" />
         </div>
+        <div class="w-full shadow-sm">
+            <app-role-list [roles]="roles$ | async" (deleteRole)="deleteRole($event)" />
+        </div>
     </div>
 </div>
