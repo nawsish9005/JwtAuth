@@ -174,3 +174,4 @@ E:\filessss\JwtAuth\API\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
 E:\filessss\JwtAuth\API\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 E:\filessss\JwtAuth\API\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 E:\filessss\JwtAuth\API\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+E:\filessss\JwtAuth\API\bin\Debug\net8.0\RestSharp.dll
