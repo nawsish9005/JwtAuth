@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-forget-password',
-  imports: [FormsModule, MatSnackBarModule],
+  imports: [MatIconModule,FormsModule, MatSnackBarModule],
   templateUrl: './forget-password.component.html',
   styleUrl: './forget-password.component.css'
 })
@@ -19,7 +20,7 @@ export class ForgetPasswordComponent {
 
   forgetPassword(){
     this.isSubmitting=true;
-    this.authService.forgetPassword(this.email).subscribe({
+    this.authService.forgotPassword(this.email).subscribe({
       next:(response)=>{
         if(response.isSuccess){
           this.matSnackbar.open(response.message, "Close",{
@@ -32,14 +33,14 @@ export class ForgetPasswordComponent {
           });
         }
       },
-      error: (error:HttpErrorResponse)=> {
-        this.matSnackbar.open(error.message, 'Close',{
+      error:(error:HttpErrorResponse)=> {
+        this.matSnackbar.open(error.message, 'Close', {
           duration:5000,
         });
       },
-      complete:()=>{
+      complete: () => {
         this.isSubmitting=false;
-      }
+      },
     });
   }
 }
