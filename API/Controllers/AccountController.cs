@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
+using Api.Dtos;
 using API.Dtos;
 using API.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -153,6 +154,33 @@ namespace API.Controllers
                     Message=response.Content!.ToString()
                 });
             }
+        }
+
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPasword(ResetPaswordDto resetPaswordDto)
+        {
+            var user = await _userManager.FindByEmailAsync(resetPaswordDto.Email);
+            //resetPaswordDto.Token=WebUtility.UrlDecode(resetPaswordDto.Token);
+            if(user is null){
+                return BadRequest(new AuthResponseDto{
+                    IsSuccess=false,
+                    Message= "User does not exist with this email"
+                });
+            }
+            var result = await _userManager.ResetPasswordAsync(user, resetPaswordDto.Token, resetPaswordDto.NewPassword);
+
+            if(result.Succeeded)
+            {
+                return Ok(new AuthResponseDto{
+                    IsSuccess = true,
+                    Message="Password reset Successfully"
+                });
+            }
+            return BadRequest(new AuthResponseDto{
+                IsSuccess=false,
+                Message= result.Errors.FirstOrDefault()!.Description
+            });
         }
 
         private string GenerateToken(AppUser user){

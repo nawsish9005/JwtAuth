@@ -29,7 +29,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'forget-password',
+    path: 'forgot-password',
     component: ForgetPasswordComponent,
   },
   {
